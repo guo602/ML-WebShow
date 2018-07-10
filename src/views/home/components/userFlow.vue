@@ -20,7 +20,7 @@ const option = {
                 fontSize: 18,
                 offsetCenter: [0, '50px']
             },
-            data: [{value: 50, name: '当前入流量'}],
+            data: [{value: 50, name: 'Flow in'}],
             center: ['25%', '50%'],
             radius: '80%',
             title: {
@@ -46,7 +46,7 @@ const option = {
                 fontSize: 18,
                 offsetCenter: [0, '50px']
             },
-            data: [{value: 50, name: '当前出流量'}],
+            data: [{value: 50, name: 'Flow out'}],
             center: ['75%', '50%'],
             radius: '80%',
             title: {

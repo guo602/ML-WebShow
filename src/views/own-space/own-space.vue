@@ -219,8 +219,8 @@ export default {
             this.userForm.name = 'Lison';
             this.userForm.cellphone = '17712345678';
             this.initPhone = '17712345678';
-            this.userForm.company = 'TalkingData';
-            this.userForm.department = '可视化部门';
+            this.userForm.company = 'HBK';
+            this.userForm.department = 'NKU Software';
         },
         cancelInputCodeBox () {
             this.inputCodeVisible = false;

@@ -8,7 +8,7 @@
             <Card :bordered="false">
                 <p slot="title">
                     <Icon type="log-in"></Icon>
-                    欢迎登录
+                    Welcome
                 </p>
                 <div class="form-con">
                     <Form ref="loginForm" :model="form" :rules="rules">
@@ -27,10 +27,10 @@
                             </Input>
                         </FormItem>
                         <FormItem>
-                            <Button @click="handleSubmit" type="primary" long>登录</Button>
+                            <Button @click="handleSubmit" type="primary" long>login</Button>
                         </FormItem>
                     </Form>
-                    <p class="login-tip">输入任意用户名和密码即可</p>
+                    <p class="login-tip">Any username&password is valid</p>
                 </div>
             </Card>
         </div>
@@ -43,7 +43,7 @@ export default {
     data () {
         return {
             form: {
-                userName: 'iview_admin',
+                userName: 'BurgerAdmin',
                 password: ''
             },
             rules: {
@@ -62,7 +62,7 @@ export default {
                 if (valid) {
                     Cookies.set('user', this.form.userName);
                     Cookies.set('password', this.form.password);
-                    this.$store.commit('setAvator', 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3448484253,3685836170&fm=27&gp=0.jpg');
+                    this.$store.commit('setAvator', 'http://ozry0hf50.bkt.clouddn.com/wx.jpg');
                     if (this.form.userName === 'iview_admin') {
                         Cookies.set('access', 0);
                     } else {

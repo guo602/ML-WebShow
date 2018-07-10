@@ -10,7 +10,7 @@
                 <Card>
                     <p slot="title">
                         <Icon type="android-contact"></Icon>
-                        当前用户
+                        Current User
                     </p>
                     <div class="access-user-con access-current-user-con">
                         <img :src="avatorPath" alt="">

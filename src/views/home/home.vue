@@ -4,6 +4,53 @@
 </style>
 <template>
     <div class="home-main">
+        
+        <Row :gutter="10" class="margin-top-10">
+            <Col :md="24" :lg="8" :style="{marginBottom: '10px'}">
+                <Card>
+                    <p slot="title" class="card-title">
+                        <Icon type="android-map"></Icon>
+                        Last Week
+                    </p>
+                    <div class="data-source-row">
+                        <visite-volume></visite-volume>
+                    </div>
+                </Card>
+            </Col>
+            <Col :md="24" :lg="8" :style="{marginBottom: '10px'}">
+                <Card>
+                    <p slot="title" class="card-title">
+                        <Icon type="ios-pulse-strong"></Icon>
+                        Come From
+                    </p>
+                    <div class="data-source-row">
+                        <data-source-pie></data-source-pie>
+                    </div>
+                </Card>
+            </Col>
+            <Col :md="24" :lg="8">
+                <Card>
+                    <p slot="title" class="card-title">
+                        <Icon type="android-wifi"></Icon>
+                        IN-OUT Changes
+                    </p>
+                    <div class="data-source-row">
+                        <user-flow></user-flow>
+                    </div>
+                </Card>
+            </Col>
+        </Row>
+        <Row class="margin-top-10">
+            <Card>
+                <p slot="title" class="card-title">
+                    <Icon type="ios-shuffle-strong"></Icon>
+                    Staticis
+                </p>
+                <div class="line-chart-con">
+                    <service-requests></service-requests>
+                </div>
+            </Card>
+        </Row>
         <Row :gutter="10">
             <Col :md="24" :lg="8">
                 <Row class-name="home-page-row1" :gutter="10">
@@ -26,12 +73,12 @@
                             </Row>
                             <div class="line-gray"></div>
                             <Row class="margin-top-8">
-                                <Col span="8"><p class="notwrap">上次登录时间:</p></Col>
-                                <Col span="16" class="padding-left-8">2017.09.12-13:32:20</Col>
+                                <Col span="8"><p class="notwrap">Time of last login:</p></Col>
+                                <Col span="16" class="padding-left-8">2018.07.10-12:32:20</Col>
                             </Row>
                             <Row class="margin-top-8">
-                                <Col span="8"><p class="notwrap">上次登录地点:</p></Col>
-                                <Col span="16" class="padding-left-8">北京</Col>
+                                <Col span="8"><p class="notwrap">Place of last login:</p></Col>
+                                <Col span="16" class="padding-left-8">BeiJing</Col>
                             </Row>
                         </Card>
                     </Col>
@@ -39,22 +86,22 @@
                         <Card>
                             <p slot="title" class="card-title">
                                 <Icon type="android-checkbox-outline"></Icon>
-                                待办事项
+                                To Do
                             </p>
                             <a type="text" slot="extra" @click.prevent="addNewToDoItem">
                                 <Icon type="plus-round"></Icon>
                             </a>
                             <Modal
                                 v-model="showAddNewTodo"
-                                title="添加新的待办事项"
+                                title="Add new To-Do"
                                 @on-ok="addNew"
                                 @on-cancel="cancelAdd">
                                 <Row type="flex" justify="center">
-                                    <Input v-model="newToDoItemValue" icon="compose" placeholder="请输入..." style="width: 300px" />
+                                    <Input v-model="newToDoItemValue" icon="compose" placeholder="Enter something..." style="width: 300px" />
                                 </Row>
                                 <Row slot="footer">
-                                    <Button type="text" @click="cancelAdd">取消</Button>
-                                    <Button type="primary" @click="addNew">确定</Button>
+                                    <Button type="text" @click="cancelAdd">cancel</Button>
+                                    <Button type="primary" @click="addNew">OK</Button>
                                 </Row>
                             </Modal>
                             <div class="to-do-list-con">
@@ -74,7 +121,7 @@
                             :end-val="count.createUser"
                             iconType="android-person-add"
                             color="#2d8cf0"
-                            intro-text="今日新增用户"
+                            intro-text="accounts of new users"
                         ></infor-card>
                     </Col>
                     <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
@@ -84,7 +131,7 @@
                             iconType="ios-eye"
                             color="#64d572"
                             :iconSize="50"
-                            intro-text="今日浏览量"
+                            intro-text="Traffic of today"
                         ></infor-card>
                     </Col>
                     <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
@@ -93,7 +140,8 @@
                             :end-val="count.collection"
                             iconType="upload"
                             color="#ffd572"
-                            intro-text="今日数据采集量"
+                            intro-text="Data-collect in
+                            today"
                         ></infor-card>
                     </Col>
                     <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
@@ -102,7 +150,7 @@
                             :end-val="count.transfer"
                             iconType="shuffle"
                             color="#f25e43"
-                            intro-text="今日服务调用量"
+                            intro-text="Called in today"
                         ></infor-card>
                     </Col>
                 </Row>
@@ -110,7 +158,7 @@
                     <Card :padding="0">
                         <p slot="title" class="card-title">
                             <Icon type="map"></Icon>
-                            今日服务调用地理分布
+                            Geo Distribution
                         </p>
                         <div class="map-con">
                             <Col span="10">
@@ -125,52 +173,6 @@
                     </Card>
                 </Row>
             </Col>
-        </Row>
-        <Row :gutter="10" class="margin-top-10">
-            <Col :md="24" :lg="8" :style="{marginBottom: '10px'}">
-                <Card>
-                    <p slot="title" class="card-title">
-                        <Icon type="android-map"></Icon>
-                        上周每日来访量统计
-                    </p>
-                    <div class="data-source-row">
-                        <visite-volume></visite-volume>
-                    </div>
-                </Card>
-            </Col>
-            <Col :md="24" :lg="8" :style="{marginBottom: '10px'}">
-                <Card>
-                    <p slot="title" class="card-title">
-                        <Icon type="ios-pulse-strong"></Icon>
-                        数据来源统计
-                    </p>
-                    <div class="data-source-row">
-                        <data-source-pie></data-source-pie>
-                    </div>
-                </Card>
-            </Col>
-            <Col :md="24" :lg="8">
-                <Card>
-                    <p slot="title" class="card-title">
-                        <Icon type="android-wifi"></Icon>
-                        各类用户服务调用变化统计
-                    </p>
-                    <div class="data-source-row">
-                        <user-flow></user-flow>
-                    </div>
-                </Card>
-            </Col>
-        </Row>
-        <Row class="margin-top-10">
-            <Card>
-                <p slot="title" class="card-title">
-                    <Icon type="ios-shuffle-strong"></Icon>
-                    上周每日服务调用量(万)
-                </p>
-                <div class="line-chart-con">
-                    <service-requests></service-requests>
-                </div>
-            </Card>
         </Row>
     </div>
 </template>
@@ -204,19 +206,19 @@ export default {
         return {
             toDoList: [
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: 'Finish Machine Learning in actions Ch02'
                 },
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: 'Finish Machine Learning in actions Ch03'
                 },
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: 'Finish Machine Learning in actions Ch04'
                 },
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: 'Finish Machine Learning in actions Ch05'
                 },
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: 'Finish Machine Learning in actions Ch06'
                 }
             ],
             count: {

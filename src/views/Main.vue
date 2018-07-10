@@ -13,8 +13,8 @@
                     :open-names="openedSubmenuArr"
                     :menu-list="menuList">
                     <div slot="top" class="logo-con">
-                        <img v-show="!shrink"  src="../images/logo.jpg" key="max-logo" />
-                        <img v-show="shrink" src="../images/logo-min.jpg" key="min-logo" />
+                        <img v-show="!shrink"  src="../images/logo.png" key="max-logo" />
+                        <img v-show="shrink" src="../images/logo-min.png" key="min-logo" />
                     </div>
                 </shrinkable-menu>
             </scroll-bar>
@@ -45,8 +45,8 @@
                                     <Icon type="arrow-down-b"></Icon>
                                 </a>
                                 <DropdownMenu slot="list">
-                                    <DropdownItem name="ownSpace">个人中心</DropdownItem>
-                                    <DropdownItem name="loginout" divided>退出登录</DropdownItem>
+                                    <DropdownItem name="ownSpace">User Info</DropdownItem>
+                                    <DropdownItem name="loginout" divided>Logout</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>
                             <Avatar :src="avatorPath" style="background: #619fe7;margin-left: 10px;"></Avatar>

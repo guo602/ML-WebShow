@@ -69,7 +69,7 @@ export default {
             shoppingData: [
                 {
                     shopping_id: 100001,
-                    name: '《vue.js实战》',
+                    name: '板烧鸡腿堡',
                     time: '2017年11月12日'
                 },
                 {

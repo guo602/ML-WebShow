@@ -7,7 +7,7 @@ let util = {
 
 };
 util.title = function (title, vm) {
-    let iTitle = 'iView admin';
+    let iTitle = 'Burger NLP';
     if (title) {
         iTitle += ' - ' + (title.i18n ? vm.$t(title.i18n) : title);
     }

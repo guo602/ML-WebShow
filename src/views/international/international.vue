@@ -72,7 +72,7 @@ export default {
     name: 'international_index',
     data () {
         return {
-            lang: 'zh-CN',
+            lang: 'en-US',
             valueText: 3,
             showModal: false,
             columnsI18n: [
@@ -128,7 +128,7 @@ export default {
         }
     },
     created () {
-        this.lang = localStorage.lang || 'zh-CN';
+        this.lang = localStorage.lang || 'en-US';
     }
 };
 </script>
